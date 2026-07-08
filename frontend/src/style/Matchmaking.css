@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: white;
+}
+
+/* Navbar */
+
+.navbar {
+  height: 70px;
+  background: black;
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 25px;
+}
+
+.nav-left {
+  margin: 0;
+}
+
+.nav-right {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.home-btn {
+  background: #004f9f;
+}
+
+.logout-btn {
+  background: #dc3545;
+}
+
+/* Main Section */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 70px);
+}
+
+/* Matchmaking Card */
+
+.matchmaking-card {
+  background: white;
+  border: 2px solid black;
+  border-radius: 12px;
+  padding: 50px 60px;
+  text-align: center;
+  width: 420px;
+}
+
+.matchmaking-title {
+  margin: 0 0 10px 0;
+  font-size: 32px;
+}
+
+.matchmaking-sub {
+  color: #555;
+  margin: 0 0 35px 0;
+  font-size: 15px;
+}
+
+/* Find Button */
+
+.find-btn {
+  background: black;
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 8px;
+  font-size: 17px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.find-btn:hover {
+  background: #222;
+}
+
+/* Searching Section */
+
+.searching-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.searching-text {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Spinner */
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ddd;
+  border-top: 5px solid black;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Cancel Button */
+
+.cancel-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.cancel-btn:hover {
+  background: #bb2d3b;
+}

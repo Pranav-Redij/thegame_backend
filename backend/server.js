@@ -1,27 +1,27 @@
 const express = require('express');
+require('dotenv').config();
 const app = express();
 const cors = require("cors");
 const allowedOrigins = [
-  "http://localhost:3000",                   // for local development
-  "https://tracknow-frontend.vercel.app"     // your deployed frontend
-];
+  "http://localhost:3000",                        // for local development
+  process.env.FRONTEND_URL                        // your deployed Netlify frontend, e.g. https://your-site.netlify.app
+].filter(Boolean);
+
+console.log("Allowed CORS origins:", allowedOrigins);
+
+app.use((req, res, next) => {
+  console.log("Incoming request origin:", JSON.stringify(req.headers.origin));
+  next();
+});
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // allow requests with no origin (like Postman or same-origin)
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    methods: ["GET", "POST", "PUT" , "DELETE"],
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
 app.use(express.json());
-require('dotenv').config();
 
 const {jwtAuthMiddleware,generateToken} = require('./jwt.js');
 
